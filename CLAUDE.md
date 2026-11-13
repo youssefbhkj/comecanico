@@ -26,11 +26,14 @@ Specs: `archi.md` (agent spec), `mecapilot_stack_rag.md`, `contexte11.md`. This 
   sheet's test outcome table. The LLM selects, orders and explains causes. No probability levels.
 - Guardrails on submit: cause exists in a sheet retrieved this session and is not eliminated; citations were returned
   by a tool this session; each hypothesis has ≥1 evidence ref (existing journal event) and ≥1 citation; proposed test
-  exists and is not done; numbers in free text must exist in session values. Safety sheet in any tool result → stop.
+  exists and is not done; numbers in free text must exist in session values (measurements AND numbers from sheets
+  retrieved this session). Safety sheet in any tool result → stop.
 - **No PID plausibility validation** (overrides archi.md §2.3, G5, stack_rag §2.2 `plausibilite`): measurements are raw
   (pid, value, unit, timestamp, source, event_id). The prompt tells the LLM never to claim measurements are validated.
 - Knowledge: fault sheets are pure YAML with English keys (`data/sheets/SYN-*.yaml`); exact DTC lookup + keyword search.
   Citation id format: `SYN-001#causes`; cause ref `SYN-001:C1`; test ref `SYN-001:T1`.
+  Real sheets are written from source PDFs (kept in git-ignored `data/sources/`, never committed), reformulated,
+  and signed in `validated_by` by a mechanic.
 - Report: HTML from the journal via Jinja2 template, no LLM call. Journal: JSONL, one event per line.
 - LLM behind `LLMClient` protocol: `ClaudeClient` (haiku for dev, sonnet for demo) and `FakeLLM` (scripted tool calls).
 - Postponed: embeddings/Chroma/BM25/RRF, voice, warranty/customer reports, code correlation, contradiction detection,
@@ -45,4 +48,6 @@ guardrails.py, journal.py, report.py, templates/ · `data/` · `tests/` · `sess
 
 ## Commands
 Use the project venv (Python 3.11): `.venv/Scripts/python -m pytest -q` ·
-`.venv/Scripts/python -m pip install -r requirements.txt` · `.venv/Scripts/python -m streamlit run mecapilot/app.py`
+`.venv/Scripts/python -m pip install -r requirements.txt` · `.venv/Scripts/python -m streamlit run mecapilot/app.py` ·
+validate fault sheets: `.venv/Scripts/python -m mecapilot.knowledge`
+Git: one commit per completed step (tests green), then push to origin/main.

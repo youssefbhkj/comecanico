@@ -1,0 +1,47 @@
+# SYNTHETIC fault sheet - placeholder content, NOT real automotive data.
+id: SYN-001
+synthetic: true
+title: "Fiche synthétique A - contenu fictif"
+codes: [P0171]
+safety_critical: false
+source: "Synthetic test data"
+validated_by: null
+
+causes:
+  C1: "Synthetic cause A"
+  C2: "Synthetic cause B"
+  C3: "Synthetic cause C"
+
+tests:
+  T1:
+    description: "Synthetic test 1: lire LONG_FUEL_TRIM_1 en condition idle puis en condition 2000rpm"
+    duration_min: 2
+    tools: []
+    pids: [LONG_FUEL_TRIM_1, RPM]
+    outcomes:
+      value_drops: {C1: strengthened, C2: weakened, C3: weakened}
+      value_stays: {C1: weakened, C2: strengthened, C3: strengthened}
+  T2:
+    description: "Synthetic test 2: contrôle avec l'outil fictif X"
+    duration_min: 10
+    tools: ["outil fictif X"]
+    outcomes:
+      anomaly_found: {C1: confirmed}
+      no_anomaly: {C1: eliminated}
+  T3:
+    description: "Synthetic test 3: contrôle avec l'outil fictif Y"
+    duration_min: 15
+    tools: ["outil fictif Y"]
+    outcomes:
+      anomaly_found: {C3: confirmed, C2: weakened}
+      no_anomaly: {C3: eliminated}
+
+sections:
+  symptoms: |
+    Contenu fictif. Symptôme fictif alpha : signalé au ralenti. Symptôme fictif bêta : signalé moteur froid.
+  causes: |
+    Contenu fictif. C1 (Synthetic cause A) est orientée par le symptôme fictif alpha.
+    C2 (Synthetic cause B) et C3 (Synthetic cause C) sont orientées par le symptôme fictif bêta.
+  tests: |
+    Contenu fictif. T1 compare LONG_FUEL_TRIM_1 entre les conditions idle et 2000rpm, sans outillage.
+    T2 utilise l'outil fictif X et peut confirmer ou éliminer C1. T3 utilise l'outil fictif Y et vise C3.

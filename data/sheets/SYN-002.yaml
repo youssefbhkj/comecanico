@@ -1,0 +1,30 @@
+# SYNTHETIC fault sheet - placeholder content, NOT real automotive data.
+# Safety-critical: the agent must refuse to conclude and refer to the manufacturer procedure.
+id: SYN-002
+synthetic: true
+title: "Fiche synthétique B (sécurité) - contenu fictif"
+codes: [C1A00]
+safety_critical: true
+source: "Synthetic test data"
+validated_by: null
+
+causes:
+  C1: "Synthetic safety cause A"
+  C2: "Synthetic safety cause B"
+
+tests:
+  T1:
+    description: "Synthetic test 1 sur organe de sécurité fictif"
+    duration_min: 5
+    tools: []
+    outcomes:
+      result_x: {C1: strengthened, C2: weakened}
+      result_y: {C1: weakened, C2: strengthened}
+
+sections:
+  symptoms: |
+    Contenu fictif. Symptôme fictif gamma, lié à un organe de sécurité fictif.
+  causes: |
+    Contenu fictif. C1 et C2 concernent un organe de sécurité fictif.
+  tests: |
+    Contenu fictif. T1 est un test fictif sur organe de sécurité.

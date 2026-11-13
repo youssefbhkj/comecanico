@@ -1,0 +1,37 @@
+# SYNTHETIC fault sheet - placeholder content, NOT real automotive data.
+id: SYN-003
+synthetic: true
+title: "Fiche synthétique C - contenu fictif"
+codes: [P2A00]
+safety_critical: false
+source: "Synthetic test data"
+validated_by: null
+
+causes:
+  C1: "Synthetic cause D"
+  C2: "Synthetic cause E"
+
+tests:
+  T1:
+    description: "Synthetic test 1: contrôle visuel fictif"
+    duration_min: 3
+    tools: []
+    outcomes:
+      anomaly_found: {C1: confirmed}
+      no_anomaly: {C1: eliminated, C2: strengthened}
+  T2:
+    description: "Synthetic test 2: contrôle avec l'outil fictif Z"
+    duration_min: 8
+    tools: ["outil fictif Z"]
+    outcomes:
+      anomaly_found: {C2: confirmed}
+      no_anomaly: {C2: eliminated}
+
+sections:
+  symptoms: |
+    Contenu fictif. Symptôme fictif delta : signalé en charge. Symptôme fictif epsilon : signalé à chaud.
+  causes: |
+    Contenu fictif. C1 (Synthetic cause D) est orientée par le symptôme fictif delta.
+    C2 (Synthetic cause E) est orientée par le symptôme fictif epsilon.
+  tests: |
+    Contenu fictif. T1 est un contrôle visuel fictif sans outillage. T2 utilise l'outil fictif Z.
