@@ -1,0 +1,7 @@
+pydantic>=2
+PyYAML
+Jinja2
+streamlit
+anthropic
+python-dotenv
+pytest

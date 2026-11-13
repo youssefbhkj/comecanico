@@ -1,0 +1,10 @@
+source: emulator                       # emulator (only implementation in the MVP)
+scenario: data/scenarios/SYN-001.json
+llm:
+  provider: fake                       # fake | claude
+  model: claude-haiku-5-5              # claude-sonnet-5-5 for the demo
+  max_tool_iterations: 8              # tool-calling iterations per agent turn
+  max_analysis_cycles: 8               # ANALYZING <-> AWAITING_TEST_RESULT round trips
+paths:
+  sheets_dir: data/sheets
+  sessions_dir: sessions
