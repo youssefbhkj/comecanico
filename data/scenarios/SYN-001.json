@@ -1,0 +1,17 @@
+{
+  "id": "SYN-001",
+  "synthetic": true,
+  "description": "SYNTHETIC demo scenario - values are placeholders, not real automotive data",
+  "vin": "SYNTHETIC0000000001",
+  "dtcs": {"stored": ["P0171"], "pending": []},
+  "freeze_frame": {
+    "RPM": {"value": 800, "unit": "rpm"},
+    "LONG_FUEL_TRIM_1": {"value": 20.0, "unit": "%"}
+  },
+  "conditions": ["idle", "2000rpm"],
+  "pids": {
+    "RPM": {"unit": "rpm", "type": "by_condition", "values": {"idle": 800, "2000rpm": 2000}, "noise": 10},
+    "LONG_FUEL_TRIM_1": {"unit": "%", "type": "by_condition", "values": {"idle": 20.0, "2000rpm": 4.0}, "noise": 0.5},
+    "COOLANT_TEMP": {"unit": "degC", "type": "fixed", "value": 90, "noise": 0}
+  }
+}
